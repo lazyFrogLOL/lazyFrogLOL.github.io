@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.gem
 *.rbc
 /.config
@@ -54,3 +55,11 @@ build-iPhoneSimulator/
 
 # Used by RuboCop. Remote config files pulled in from inherit_from directive.
 # .rubocop-https?--*
+=======
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
+Gemfile.lock
+>>>>>>> 64b91ea (Initial GitHub pages site with Jekyll)
