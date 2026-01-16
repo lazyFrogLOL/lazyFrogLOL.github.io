@@ -4,15 +4,28 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+## About Me
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+Hi, I'm **LazyFrog** - a tech enthusiast passionate about AI, software engineering, and building things that matter.
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+### What I Do
 
+- **AI & Machine Learning**: Exploring the frontiers of artificial intelligence, from large language models to practical ML applications
+- **Software Engineering**: Building scalable systems and sharing best practices
+- **Open Source**: Contributing to the community and learning from others
 
-[jekyll-organization]: https://github.com/jekyll
+### This Blog
+
+This blog is a space where I share:
+
+- **AI Daily**: Curated daily updates on the latest AI developments
+- **Technical Deep Dives**: In-depth explorations of interesting technologies
+- **Project Showcases**: Things I'm building and learning
+
+### Connect
+
+- **GitHub**: [github.com/lazyFrogLOL](https://github.com/lazyFrogLOL)
+
+---
+
+*Thanks for stopping by!*
