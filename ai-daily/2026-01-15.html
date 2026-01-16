@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Daily - 2026年1月15日</title>
+  <style>
+    :root {
+      --bg-color: #000000;
+      --glow-start: #0A1929;
+      --glow-end: #1A3A52;
+      --title-color: #FFFFFF;
+      --text-color: #E3F2FD;
+      --accent-color: #42A5F5;
+      --secondary-color: #B0BEC5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .background-glow {
+      position: fixed;
+      bottom: -20%;
+      right: -20%;
+      width: 70%;
+      height: 70%;
+      background: radial-gradient(
+        circle at center,
+        var(--glow-end) 0%,
+        var(--glow-start) 40%,
+        transparent 80%
+      );
+      opacity: 0.6;
+      filter: blur(80px);
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    .geometric-lines {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image:
+        linear-gradient(90deg, transparent 49%, var(--accent-color) 50%, transparent 51%),
+        linear-gradient(0deg, transparent 49%, var(--accent-color) 50%, transparent 51%);
+      background-size: 200px 200px;
+      opacity: 0.08;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .logo-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--accent-color), var(--glow-end));
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      margin: 0 auto 20px;
+      animation: glow-pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes glow-pulse {
+      0%, 100% {
+        box-shadow: 0 0 40px var(--accent-color), 0 0 80px var(--accent-color);
+      }
+      50% {
+        box-shadow: 0 0 50px var(--accent-color), 0 0 100px var(--accent-color);
+      }
+    }
+
+    h1 {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--title-color);
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+
+    .date-badge {
+      display: inline-block;
+      padding: 8px 20px;
+      background: rgba(66, 165, 245, 0.15);
+      border: 1px solid rgba(66, 165, 245, 0.3);
+      border-radius: 20px;
+      color: var(--accent-color);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .summary-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 40px;
+      transition: border-color 0.3s ease;
+    }
+
+    .summary-card:hover {
+      border-color: var(--accent-color);
+    }
+
+    .summary-card h2 {
+      font-size: 24px;
+      color: var(--title-color);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .summary-card h2::before {
+      content: '';
+      width: 4px;
+      height: 24px;
+      background: var(--accent-color);
+      border-radius: 2px;
+    }
+
+    .summary-list {
+      list-style: none;
+    }
+
+    .summary-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .summary-list li:last-child {
+      border-bottom: none;
+    }
+
+    .summary-list li::before {
+      content: '>';
+      color: var(--accent-color);
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .category-section {
+      margin-bottom: 50px;
+    }
+
+    .category-section h2 {
+      font-size: 28px;
+      color: var(--title-color);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .news-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .news-card:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(66, 165, 245, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .news-card h3 {
+      font-size: 18px;
+      color: var(--title-color);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .news-card p {
+      color: var(--text-color);
+      font-size: 15px;
+      margin-bottom: 12px;
+      opacity: 0.9;
+    }
+
+    .news-card .source-link {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-size: 13px;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+
+    .news-card .source-link:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    .keywords-footer {
+      text-align: center;
+      padding: 40px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 40px;
+    }
+
+    .keywords-footer .tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .keywords-footer .tag {
+      padding: 6px 14px;
+      background: rgba(66, 165, 245, 0.1);
+      border: 1px solid rgba(66, 165, 245, 0.2);
+      border-radius: 16px;
+      color: var(--accent-color);
+      font-size: 13px;
+    }
+
+    .keywords-footer .copyright {
+      color: var(--secondary-color);
+      font-size: 13px;
+    }
+
+    .keywords-footer .copyright a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    .highlight {
+      color: var(--accent-color);
+      font-weight: 500;
+    }
+
+    .sub-section {
+      margin-top: 20px;
+      padding-left: 16px;
+      border-left: 2px solid rgba(66, 165, 245, 0.3);
+    }
+
+    .sub-section h4 {
+      color: var(--title-color);
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 36px;
+      }
+      .container {
+        padding: 20px 16px;
+      }
+      .summary-card, .news-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background-glow"></div>
+  <div class="geometric-lines"></div>
+
+  <div class="container">
+    <header>
+      <div class="logo-icon">AI</div>
+      <h1>AI Daily</h1>
+      <div class="date-badge">2026年1月15日 星期四</div>
+    </header>
+
+    <main>
+      <section class="summary-card">
+        <h2>核心摘要</h2>
+        <ul class="summary-list">
+          <li><strong>OpenAI 发布 GPT-5.2-Codex</strong> - 专为长期运行任务设计的编码模型，Cursor 已集成并成功运行一周自动生成 3M+ 行 Rust 代码</li>
+          <li><strong>OpenAI 与 Cerebras 合作</strong> - 加速推理基础设施，延迟和吞吐量成为产品差异化关键</li>
+          <li><strong>LangChain Agent Builder 发布</strong> - 支持 Skills/MCP/Subagents，实现"无代码，仅提示"的 Agent 构建</li>
+          <li><strong>Google Gemini 个性化上线</strong> - 可连接 Gmail/Photos/Search/YouTube 历史，强调隐私控制</li>
+          <li><strong>Airbnb 聘请 Meta Llama 负责人为 CTO</strong> - Ahmad Al-Dahle 加入，Llama 已有 12 亿+ 下载量</li>
+        </ul>
+      </section>
+
+      <section class="category-section">
+        <h2>模型发布</h2>
+        
+        <div class="news-card">
+          <h3>GPT-5.2-Codex 正式发布</h3>
+          <p>OpenAI 在 Responses API 中推出 <span class="highlight">GPT-5.2-Codex</span>，定位为最强编码模型，专为<span class="highlight">长期运行任务</span>设计，如功能开发、重构和漏洞发现。被称为"最具网络安全能力"的模型。</p>
+          <p>Cursor 立即集成并报告：团队使用该模型<span class="highlight">连续运行一周</span>，生成了 <span class="highlight">3M+ 行 Rust 代码</span>，构建了一个基本可用的浏览器（HTML解析 → CSS布局 → 绘制 → 自定义JS VM）。</p>
+          <a href="https://news.smol.ai/issues/26-01-14-not-much/" class="source-link">原文链接 ></a>
+        </div>
+
+        <div class="news-card">
+          <h3>Mistral Ministral 3 技术报告</h3>
+          <p>新技术报告强调<span class="highlight">剪枝+蒸馏</span>方法：使用教师模型进行预训练/后训练，在后训练阶段采用在线 DPO。具体剪枝策略包括：通过输出/输入范数比率进行层剪枝、PCA旋转的隐藏维度剪枝、门控激活分数的FFN剪枝。</p>
+          <a href="https://news.smol.ai/issues/26-01-14-not-much/" class="source-link">原文链接 ></a>
+        </div>
+
+        <div class="news-card">
+          <h3>DeepSeek Engram 记忆模块</h3>
+          <p>DeepSeek + 北大团队提出"将思考与记忆分离"：<span class="highlight">MoE（稀疏计算）+ Engram（稀疏存储）</span>架构。使用基于哈希的 O(1) 查找，将 n-gram 作为向量检索并融合到 transformer 流中，支持预取/延迟隐藏和 RAM 常驻内存表。</p>
+          <a href="https://news.smol.ai/issues/26-01-14-not-much/" class="source-link">原文链接 ></a>
+        </div>
+      </section>
+
+      <section class="category-section">
+        <h2>产品动态</h2>
+        
+        <div class="news-card">
+          <h3>Google Gemini 个性化功能</h3>
+          <p>Google 宣布 Gemini 个性化功能，可连接 <span class="highlight">Gmail/Photos/Search/YouTube 历史</span>，强调选择加入和隐私控制。在 Google/Gemini 领导层账号获得高互动量。</p>
+          <a href="https://news.smol.ai/issues/26-01-14-not-much/" class="source-link">原文链接 ></a>
+        </div>
+
+        <div class="news-card">
+          <h3>LangSmith Agent Builder 发布</h3>
+          <p>LangChain 推出 <span class="highlight">LangSmith Agent Builder</span>，将"Agents 作为文件系统"，内置内存、触发器支持常驻 Agent，支持 <span class="highlight">Skills/MCP/Subagents</span>。实际案例：用"无代码，仅提示"构建 Slack 到 Linear 的工单 Agent。</p>
+          <a href="https://news.smol.ai/issues/26-01-14-not-much/" class="source-link">原文链接 ></a>
+        </div>
+
+        <div class="news-card">
+          <h3>Phil Schmid 发布 Agent Skills</h3>
+          <p>为 <code>antigravity</code> 推出 <span class="highlight">Agent Skills</span>，标准化文件夹结构（<code>.agent/skills/</code>），兼容 Gemini CLI / Claude Code / OpenCode 生态系统。HuggingFace 从业者认为：对于大多数团队，<span class="highlight">小型垂直 Skills + CLI/MCP</span> 是稳健路径。</p>
+          <a href="https://news.smol.ai/issues/26-01-14-not-much/" class="source-link">原文链接 ></a>
+        </div>
+
+        <div class="news-card">
+          <h3>Vercel React 最佳实践 Agent Skill</h3>
+          <p>Vercel 发布 <code>react-best-practices</code> 作为"Agent Skill"+ 评估套件，获得高互动量。展示了如何将最佳实践编码为可复用的 Agent 技能。</p>
+          <a href="https://news.smol.ai/issues/26-01-14-not-much/" class="source-link">原文链接 ></a>
+        </div>
+      </section>
+
+      <section class="category-section">
+        <h2>基础设施</h2>
+        
+        <div class="news-card">
+          <h3>OpenAI 与 Cerebras 合作</h3>
+          <p>Cerebras 宣布与 OpenAI 建立合作关系。时间线上的讨论框架是：<span class="highlight">延迟和 tokens/sec</span> 正在成为 ChatGPT 风格体验的用户可见产品差异化因素（相对于 Gemini 的竞争优势）。</p>
+          <a href="https://news.smol.ai/issues/26-01-14-not-much/" class="source-link">原文链接 ></a>
+        </div>
+
+        <div class="news-card">
+          <h3>GLM-4.7 提供商基准测试</h3>
+          <p>Artificial Analysis 发布 GLM-4.7 提供商对比：<span class="highlight">Cerebras 提供 ~1,445 output tokens/s</span>，TTFAT ~1.6s；GPU 提供商如 Fireworks/Baseten 在吞吐量/延迟上落后，但支持更大上下文窗口（Cerebras 131k，其他 200k）。</p>
+          <a href="https://news.smol.ai/issues/26-01-14-not-much/" class="source-link">原文链接 ></a>
+        </div>
+
+        <div class="news-card">
+          <h3>Modal 自托管推理指南</h3>
+          <p>Modal 发布指南，论证自托管推理现在可以匹配/击败 API 经济性。SemiAnalysis 强调了 Modal 关于维护 <span class="highlight">2 万个 GPU</span> 健康的运维文章。vLLM 和 Modal 内容聚焦<span class="highlight">批量推理</span>以充分利用 H100。</p>
+          <a href="https://news.smol.ai/issues/26-01-14-not-much/" class="source-link">原文链接 ></a>
+        </div>
+      </section>
+
+      <section class="category-section">
+        <h2>研究论文</h2>
+        
+        <div class="news-card">
+          <h3>DroPE: 无位置编码的长上下文</h3>
+          <p>简单方法：取预训练 LLM，<span class="highlight">移除 RoPE</span>，<span class="highlight">不使用位置编码</span>进行微调。在标准数据集上性能相当，长上下文行为改善。在 SmolLM-1.7B 和 Llama2-7B 上测试。</p>
+          <a href="https://news.smol.ai/issues/26-01-14-not-much/" class="source-link">原文链接 ></a>
+        </div>
+
+        <div class="news-card">
+          <h3>UniversalRAG: 多模态感知路由</h3>
+          <p>提出<span class="highlight">模态感知路由</span>（避免将所有内容强制放入单一嵌入空间），跨<span class="highlight">模态+粒度</span>检索（段落 vs 文档；片段 vs 完整视频；表格/图像）。训练或无训练路由，在 10 个基准上获胜。</p>
+          <a href="https://news.smol.ai/issues/26-01-14-not-much/" class="source-link">原文链接 ></a>
+        </div>
+
+        <div class="news-card">
+          <h3>VPBench: 基准脆弱性研究</h3>
+          <p>VPBench 论证小的展示变化（如<span class="highlight">红色 vs 蓝色标记</span>）可以重新排序 VLM 排行榜。对于将排行榜差异视为稳健信号的人来说，这是有用的证据。</p>
+          <a href="https://news.smol.ai/issues/26-01-14-not-much/" class="source-link">原文链接 ></a>
+        </div>
+      </section>
+
+      <section class="category-section">
+        <h2>行业动态</h2>
+        
+        <div class="news-card">
+          <h3>Airbnb 聘请 Meta Llama 负责人为 CTO</h3>
+          <p>Ahmad Al-Dahle 宣布加入 Airbnb 担任 CTO。他赞扬 Meta 对 Llama 的开源押注（<span class="highlight">12亿+ 下载量</span>，<span class="highlight">6万+ 衍生品</span>），并将 Airbnb 定位为应用先进模型能力的产品前沿。多位领导者背书此举。</p>
+          <a href="https://news.smol.ai/issues/26-01-14-not-much/" class="source-link">原文链接 ></a>
+        </div>
+
+        <div class="news-card">
+          <h3>Thinking Machines Lab / OpenAI 领导层变动</h3>
+          <p>Mira Murati 宣布 Barret Zoph 离开 TML，<span class="highlight">Soumith Chintala</span> 成为 CTO。随后 OpenAI 宣布 Barret Zoph、Luke Metz 和 Sam Schoenholz 回归 OpenAI。</p>
+          <a href="https://news.smol.ai/issues/26-01-14-not-much/" class="source-link">原文链接 ></a>
+        </div>
+
+        <div class="news-card">
+          <h3>开源与中型组织</h3>
+          <p>HuggingFace 的 Clement Delangue 论证初创公司和中型科技公司可以实质性推进开放科学/开源 AI，并指出来自 <span class="highlight">fal</span> 和 <span class="highlight">Lightricks</span> 的热门模型作为证据。LTX-2 庆祝 HuggingFace <span class="highlight">100 万次下载</span>。</p>
+          <a href="https://news.smol.ai/issues/26-01-14-not-much/" class="source-link">原文链接 ></a>
+        </div>
+      </section>
+
+      <section class="category-section">
+        <h2>社区热点</h2>
+        
+        <div class="news-card">
+          <h3>本地 LLM 硬件对比讨论</h3>
+          <p>Reddit 社区热议 <span class="highlight">M4/M5 Max 128GB vs DGX Spark</span> 对比。MacBook 的更高内存带宽有利于推理，但 NVIDIA 的 CUDA 支持更广。共识：M3 Ultra Mac Studio 在纯文本生成任务上优于 DGX Spark。</p>
+          <a href="https://news.smol.ai/issues/26-01-14-not-much/" class="source-link">原文链接 ></a>
+        </div>
+
+        <div class="news-card">
+          <h3>16GB 显存能跑多大模型？</h3>
+          <p>使用 RTX 5080 和 16GB 显存，最大可运行约 <span class="highlight">14B 参数</span>模型（保持有用的上下文大小）。30B 模型需要低于 4-bit 的量化，会降低质量。建议将模型大小保持在显存的 80% 以下，为上下文留出空间。</p>
+          <a href="https://news.smol.ai/issues/26-01-14-not-much/" class="source-link">原文链接 ></a>
+        </div>
+
+        <div class="news-card">
+          <h3>Gemini 数学专用版本证明新定理</h3>
+          <p>Gemini "数学专用版本" 据报道证明了一个新的数学定理。该模型的架构和训练针对数学推理进行了优化。评论者建议在 Erdos 问题上测试该模型作为基准。</p>
+          <a href="https://news.smol.ai/issues/26-01-14-not-much/" class="source-link">原文链接 ></a>
+        </div>
+
+        <div class="news-card">
+          <h3>5.2 Pro 在数十年数学问题上取得进展</h3>
+          <p>使用 AI 模型 5.2 Pro 的 Archivara 宣布 Moser 蠕虫问题的新数值上界：将通用覆盖面积降至 <span class="highlight">0.260069597</span>，超越 2018 年的 0.26007 记录。由 INRIA 数学家验证。</p>
+          <a href="https://news.smol.ai/issues/26-01-14-not-much/" class="source-link">原文链接 ></a>
+        </div>
+      </section>
+
+      <footer class="keywords-footer">
+        <div class="tags">
+          <span class="tag">#OpenAI</span>
+          <span class="tag">#GPT-5.2-Codex</span>
+          <span class="tag">#Cursor</span>
+          <span class="tag">#Cerebras</span>
+          <span class="tag">#LangChain</span>
+          <span class="tag">#Gemini</span>
+          <span class="tag">#Airbnb</span>
+          <span class="tag">#DeepSeek</span>
+          <span class="tag">#Mistral</span>
+          <span class="tag">#AgentSkills</span>
+          <span class="tag">#MCP</span>
+          <span class="tag">#Llama</span>
+        </div>
+        <p class="copyright">
+          数据来源: <a href="https://news.smol.ai" target="_blank">smol.ai</a> | 
+          <a href="https://news.smol.ai/issues/26-01-14-not-much/" target="_blank">原文链接</a>
+        </p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
